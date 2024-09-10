@@ -181,7 +181,7 @@ const MusicVisualizer = () => {
   };
 
   return (
-    <div className="h-screen flex md:flex-row flex-col items-center justify-center bg-black text-white overflow-hidden">
+    <div className="min-h-screen flex md:flex-row flex-col items-center justify-center bg-black text-white overflow-hidden">
       <div className="flex flex-col gap-8 md:w-2/5 w-full px-8">
         <h1 className="text-4xl mb-6">Music Visualizer</h1>
         <div className="flex items-center space-x-4">
@@ -192,7 +192,7 @@ const MusicVisualizer = () => {
               onChange={handleFileChange}
               className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
             />
-            <button className="px-4 py-2 border w-40 border-slate-950 bg-slate-900 rounded-lg text-white">
+            <button className="px-4 py-2 border w-40  bg-slate-900 rounded-lg text-white border-gray-200">
               Choose File
             </button>
           </div>
@@ -212,16 +212,16 @@ const MusicVisualizer = () => {
       <div className="flex flex-col items-center space-y-4 md:w-3/5 w-full">
         {audioFile && (
           <>
-            <div className="flex flex-wrap justify-center items-center space-y-2 space-x-4 md:mt-4 mt-0">
+            <div className="flex md:overflow-hidden overflow-x-scroll md:justify-center justify-start md:px-0 px-5 items-center space-y-2 space-x-4 md:mt-4 mt-0 w-full " >
               {["bars", "barsBothSides", "lines", "waveform"].map((type) => (
                 <button
                   key={type}
                   onClick={() => handleStyleChange(type)}
-                  className={`px-4 py-2 rounded-full ${
+                  className={`px-4 py-2 rounded-full w-40 ${
                     visualizerType === type
                       ? "bg-purple-900"
                       : "bg-purple-500 "
-                  } hover:bg-purple-600 transition`}
+                  } hover:bg-purple-600 transition flex-shrink-0`}
                 >
                   {type === "bars"
                     ? "Bars"
